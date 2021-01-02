@@ -5,10 +5,10 @@ if __name__ == "__main__":
     parser = MazeArgumentParser()
     args = parser.parse_args()
     g = args.algorithm(*args.size)
-    render_maze(
+    img = render_maze(
         g,
         path_width=args.path,
         wall_width=args.wall,
         border_width=args.border,
-        output_file=args.output,
     )
+    img.save(args.output, "PNG")

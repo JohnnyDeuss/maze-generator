@@ -43,4 +43,4 @@ def render_maze(g, path_width=20, wall_width=2, border_width=4, output_file="maz
     for e in g.edges:
         draw_line(*e)
 
-    img.save(output_file, "PNG")
+    return img
