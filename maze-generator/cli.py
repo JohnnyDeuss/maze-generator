@@ -1,6 +1,6 @@
 from argparse import ArgumentParser, ArgumentTypeError
 
-from .generators import best_first, breadth_first
+from .generators import best_first, breadth_first, ust
 
 
 class MazeArgumentParser(ArgumentParser):
@@ -23,9 +23,9 @@ class MazeArgumentParser(ArgumentParser):
             "--algorithm",
             "--algo",
             "-a",
-            default="best",
+            default="ust",
             help="The generation algoritms to use",
-            choices=["best", "breadth"],
+            choices=["best", "breadth", "ust"],
         )
         # Rendering arguments
         self.add_argument(
@@ -55,6 +55,7 @@ class MazeArgumentParser(ArgumentParser):
         mapping = {
             "best": best_first,
             "breadth": breadth_first,
+            "ust": ust,
         }
         try:
             return mapping[algorithm_name]
